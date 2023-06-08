@@ -8,5 +8,4 @@ RUN yes | sdkmanager --licenses
 COPY . /app
 WORKDIR /app
 
-RUN chmod +x gradlew
 RUN ./gradlew assembleDebug
