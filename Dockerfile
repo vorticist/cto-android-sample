@@ -1,5 +1,5 @@
 FROM debian:bookworm
-# SHELL ["/bin/bash", "-c"]
+SHELL ["/bin/bash", "-c"]
 
 RUN apt update && apt install -y wget unzip openjdk-17-jdk
 #
@@ -17,7 +17,7 @@ RUN wget -O sdk-tools.zip https://dl.google.com/android/repository/commandlineto
 RUN mv android-sdk/cmdline-tools/* ./tmp && mkdir android-sdk/cmdline-tools/latest
 RUN mv ./tmp/* android-sdk/cmdline-tools/latest/
 
-ENV ANDROID_HOME=android-sdk
+ENV ANDROID_HOME=/android-sdk
 ENV PATH=${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin
 
 RUN yes | sdkmanager --licenses
